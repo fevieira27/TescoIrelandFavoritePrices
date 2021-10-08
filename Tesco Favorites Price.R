@@ -8,7 +8,8 @@ login<-"https://secure.tesco.ie/register/?from=https://www.tesco.ie/groceries/%3
 # creating a web session with the login information
 pgsession<-html_session(login)
 pgform<-html_form(pgsession)[[1]]  #in this case the submit is the 2nd form
-filled_form<-set_values(pgform, loginID="XXXX", password="XXXX")
+# filled_form<-set_values(pgform, loginID="XXXX", password="XXXX") # old form field names
+filled_form<-set_values(pgform, txtUserName="XXXX", txtPassword="XXXX") # new form field names
 submit_form(pgsession, filled_form)
 
 results<-data.frame()
